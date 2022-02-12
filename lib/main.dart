@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pageview_scrolling/notifying_pageview.dart';
 import 'dart:math';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,23 +16,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>{
-  ValueNotifier<double> _notifier;
-
+class _HomePageState extends State<HomePage> {
+  late ValueNotifier<double> _notifier;
 
   @override
   void dispose() {
-    _notifier?.dispose();
+    _notifier.dispose();
     super.dispose();
   }
 
@@ -42,10 +47,10 @@ class _HomePageState extends State<HomePage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Drag and rotate!"),
+        title: const Text("Drag and rotate!"),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical:48.0),
+        padding: const EdgeInsets.symmetric(vertical: 48.0),
         child: Column(
           children: <Widget>[
             Expanded(
@@ -68,7 +73,7 @@ class _HomePageState extends State<HomePage>{
                         height: 200,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const [
                             Icon(
                               Icons.arrow_upward,
                               color: Colors.white,
